@@ -15,7 +15,7 @@ class Solution:
                 
             length = max(len(string),length)
         return length '''
-        
+        """
         
         last = {}
         start = 0
@@ -31,4 +31,26 @@ class Solution:
             last[s[index]] = index
             
         return length
+        
+        """
+        
+        ans = 0
+        dic = {}
+        
+        
+        right = 0 
+        for i in range(len(s)):
+            
+            if s[i] not in dic:
+                dic[s[i]] = i
+            elif s[i] in dic:
+                right = max(right,dic[s[i]] +1)
+                dic[s[i]]=i
+                
+            ans = max(ans,i-right+1)
+            print(ans)
+                
+                
+        return ans
+            
         
