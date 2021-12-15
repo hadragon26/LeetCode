@@ -5,13 +5,14 @@
 #         self.next = next
 class Solution:
     def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+        """"
         
         if not head:
             return None 
         
-        
+        dummy=ListNode(0,head)
         curr = head
-        prev = None 
+        prev = dummy
         
         while left>1:
             prev = curr
@@ -19,36 +20,66 @@ class Solution:
             left-=1
             right-=1
             
-        tail = curr
-        conn = prev
+        prev1 = 0 
         
-        print(tail)
-        
-        print(prev)
         
         while right>0:
             
             x = curr.next
-            curr.next = prev
-            prev = curr
+            curr.next = prev1
+            prev1 = curr
             curr = x
             
             right-=1
             
             
         
+        
+        prev.next.next =curr
+        prev.next = prev1
+        return dummy.next"""
+        
+        
+        
+        dummy=ListNode(0,head)
+        curr = dummy
+        index = 0
+        
+        while curr:
             
-        if conn != None:
-            conn.next = prev
             
+            if index ==left:
+                node = None 
+                prev = curr
+                while index<=right:
+                    nxt = curr.next
+                    curr.next = node
+                    node = curr
+                    curr = nxt
+                        
+                    index +=1
+                if curr == None:
+                    start.next =node
+                
+                    prev.next = curr
+                    break
+                    
+            elif index>right:
+                start.next =node
+                
+                prev.next = curr
+                
+                break 
+                
+            else:
+                start = curr
+                curr = curr.next
+                index+=1
+                    
             
-            
-        else:
-            head = prev
-            
-        tail.next = curr
-        return(head)
-            
+                    
+        return dummy.next
+                    
         
         
        
