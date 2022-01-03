@@ -13,34 +13,34 @@ class Solution:
         if not root:
             return []
         
-        q = queue()
-        q.append([root])
+        q= queue()
         
-        ans = [[root.val]]
+        q.append([root])
+        ans= [[root.val]]
         while q:
+            node_list = q.popleft()
+            new =[]
+            val = []
             
-            y = []
-            z = []
-            x = q.popleft()
-            
-            for i in x:
-                
+            for i in node_list:
                 if i.left:
-                    y.append(i.left)
-                    z.append(i.left.val)
-                    
-                    
-                    
+                    new.append(i.left)
+                    val.append(i.left.val)
                 if i.right:
-                    y.append(i.right)
-                    z.append(i.right.val)
-                    
-                    
-            if y:
-                ans.append(z)
-                q.append(y)
-                
+                    new.append(i.right)
+                    val.append(i.right.val)
+            
+            if new:
+                q.append(new)
+                ans.append(val)
         return ans
+                
+            
+            
+        
+        
+        
+        
             
         
             
