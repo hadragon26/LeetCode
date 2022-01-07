@@ -12,10 +12,7 @@ class Solution:
         start_list = []
         while start_list1:
             start_list.append(heappop(start_list1))
-        print(start_list)
-        print(end_list)
-        print(dic)
-                  
+        
         def searh(ele):
             left = 0 
             right = len(start_list)-1
