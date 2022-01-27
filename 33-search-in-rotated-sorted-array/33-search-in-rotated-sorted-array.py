@@ -31,7 +31,7 @@ class Solution:
             start = pivot
             
         else:
-            end = pivot 
+            end = pivot - 1
         while end>=start:
             
             mid = start + (end-start)//2
