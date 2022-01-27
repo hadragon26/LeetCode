@@ -9,8 +9,7 @@ class Solution:
         
         start = 0 
         end = len(arr)-1
-        ans = 0
-        track = -1
+        
         
         while start <=end:
             mid = (start + end)//2
