@@ -16,7 +16,7 @@ class Solution:
         for key,value in dic.items():
             heappush(heap,(-value,key))
         string = ""  
-        print(heap)
+        
         while heap:
             ele = heappop(heap)
             string += ele[1]*-ele[0]
