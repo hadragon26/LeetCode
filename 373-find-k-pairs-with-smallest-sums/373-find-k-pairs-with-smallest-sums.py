@@ -20,7 +20,12 @@ class Solution:
                 if len(heap)< k:
             
                     heappush(heap,(-(num+num1),[num,num1]))
+                
                 else:
+                    if -heap[0][0]<num1+num:
+                        break
+                    
+                    
                     if -heap[0][0]> num1+num:
                         heappop(heap)
                         heappush(heap,(-(num+num1),[num,num1]))
