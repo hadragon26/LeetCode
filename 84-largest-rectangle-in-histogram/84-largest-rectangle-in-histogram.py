@@ -34,7 +34,7 @@ class Solution:
                         
                     stack.append((start,height))
                     
-        print(stack)
+        
         for ele in stack:
             area = max(area,ele[-1]*(length-ele[0]))
             
