@@ -45,7 +45,7 @@ class Solution:
                 stack.append(temp)
                 
                 
-        print(stack)       
+        #print(stack)       
         #print(int(0))
         ans = 0 
         neg =False
