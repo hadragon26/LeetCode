@@ -23,8 +23,8 @@ class Solution:
                 match = False
             
             if p[g]=='*':
-                dic[(i,g)] = find(i,g+1) or match and find(i+1,g) 
-                return (find(i,g+1) or match and find(i+1,g) )
+                dic[(i,g)] = find(i,g+1) or (match and find(i+1,g) )
+                return (find(i,g+1) or (match and find(i+1,g) ))
             
             
             if match:
