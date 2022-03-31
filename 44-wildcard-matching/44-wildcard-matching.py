@@ -33,7 +33,7 @@ class Solution:
             
             
             
-            
+            dic[(i,g)] =False
             return False
         
         
