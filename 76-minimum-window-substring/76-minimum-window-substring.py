@@ -71,7 +71,7 @@ class Solution:
                     left +=1
                 
                 
-        print(dic2) 
+        #print(dic2) 
         while same(dic2):
                     
             if end-left< right - minleft:
