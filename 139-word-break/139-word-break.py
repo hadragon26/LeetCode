@@ -12,7 +12,7 @@ class Solution:
                 temp+= ele
                 
                 if temp in wordDict:
-                    print(temp)
+                    
                     
                     if s[index+1:]in dic and dic[s[index+1:]]==False:
                         #rint('True')
