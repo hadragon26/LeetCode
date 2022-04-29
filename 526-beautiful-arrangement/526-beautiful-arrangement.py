@@ -3,7 +3,6 @@ class Solution:
         
         self.count = 0 
         track = [False for i in range(n+1)]
-        print(track)
         
         def calc(n,pos):
             if pos>n:
