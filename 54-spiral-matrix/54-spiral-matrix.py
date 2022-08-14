@@ -1,57 +1,51 @@
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        from collections import deque
         
-        col = len(matrix[0])
         row = len(matrix)
+        col = len(matrix[0])
         
-        visit = [[False for i in range(col)] for i in range(row)]
+        top_row = 0 
+        bottom_row = row 
         
-        print([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]])
-        
-        
-        ans = [] 
-        track = deque()
-        track.append((0,0,'right'))
-        
-        
-        while track:
-            r,c,d = track.pop()
+        left_col = 0 
+        right_col = col
+        lst = []
+        while bottom_row>top_row and right_col>left_col:
             
-            if d == 'right':
+            for track_col in range(left_col,right_col):
+                
+                lst.append(matrix[top_row][track_col])
+                
+            top_row+=1
+                
+            for track_row in range(top_row,bottom_row):
+                
+                lst.append(matrix[track_row][right_col-1])
             
-                if c+1<col and not visit[r][c+1]:
-                    track.append((r,c+1,d))
-                elif r+1<row and not visit[r+1][c]:
-                    track.append((r+1,c,'down')) 
-            elif d == 'down':
-                if r+1<row and not visit[r+1][c]:
-                    track.append((r+1,c,d)) 
-                
-                elif c-1>=0 and not visit[r][c-1]:
-                    track.append((r,c-1,'left'))
-            elif d == 'left':
-                if c-1>=0 and not visit[r][c-1]:
-                    track.append((r,c-1,d))
-                elif  r-1>=0 and not visit[r-1][c]:
-                    track.append((r-1,c,'up'))
-                    
-            elif d == 'up':
-                if  r-1>=0 and not visit[r-1][c]:
-                    track.append((r-1,c,d))
-                elif c+1<col and not visit[r][c+1]:
-                    track.append((r,c+1,'right'))
-                    
+            right_col-=1
                 
                 
+            if not(left_col<right_col and top_row<bottom_row):
+                break
                 
-                
-                
-           
-            ans.append(matrix[r][c])
-            visit[r][c] =True
+            for track_col in range(right_col-1,left_col-1,-1):
+                lst.append(matrix[bottom_row-1][track_col])
             
-        return ans
+            bottom_row -=1
+            
+            for track_row in range(bottom_row-1,top_row-1,-1):
                 
+                lst.append(matrix[track_row][left_col])
+            
+            left_col+=1
             
             
+        return lst
+            
+            
+                
+        
+        
+        
+        
+        
