@@ -1,39 +1,48 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
-        start = 0
-        end = len(nums)-1
+        start = 0 
+
+        end = len(nums)-1 
+        if not nums:
+            return [-1,-1]
+        def find():
         
         
-        
-        
-        while end>= start:
-            
-            mid = (start+end)//2
-            
-            if nums[mid] == target:
-                f = mid 
-                l = mid 
-                
-                while mid >0 and nums[mid-1]==nums[mid]:
-                    f-=1
-                    mid = f 
+
+            l = start 
+            r = end
+
+            while r>=l:
+
+
+                mid = (l+r)//2
+
+                if target == nums[mid]:
+                    return mid
+
+                elif target>nums[mid]:
+                    l = mid+1
+                else:
+                    r-=1
                     
-                mid = l
-                    
-                while mid+1 <= end and nums[mid+1] == nums[mid]:
-                    l+=1 
-                    mid = l
-                    
-                return [f,l]
-            
-            elif nums[mid]< target:
-                start = mid + 1
+            return -1
+        if find() == -1 :
+            #print('hi')
+            return [-1,-1]
+        
+        index = find()
+        
+        l = r = index
+        
+        while l-1 >= 0 and nums[l-1] == target:
+            l-=1
+        while r+1 <= end and nums[r+1] == target:
+            r+=1
+        
+        return [l,r]
+        
                 
-            elif nums[mid] > target:
-                end -=1
-                
-                
-        return [-1,-1]
+        
                     
                     
                     
