@@ -1,11 +1,20 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         
-        ls = [[]]
-       
-        for num in nums:
+        res = [[]]
+        
+        for i in nums:
             
-            ls += [i+[num]for i in ls]
-        return ls
+            c = res[:]
+            #print(c)
+            for x in c:
                 
+                y = x[:]
+                y.append(i)
+                res.append(y)
+                
+                
+                
+        return res
+            
             
